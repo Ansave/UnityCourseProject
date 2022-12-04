@@ -3378,7 +3378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spring: {fileID: 601323957}
-  wobblingScale: 30
+  wobblingScale: 45
 --- !u!1 &1217707647003209
 GameObject:
   m_ObjectHideFlags: 0
