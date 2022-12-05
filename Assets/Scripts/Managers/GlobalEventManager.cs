@@ -11,6 +11,8 @@ public class GlobalEventManager : MonoBehaviour
     public static UnityEvent OnEnemyKilled = new UnityEvent();
     public static readonly UnityEvent <GameObject> OnPlayerSpawned = new UnityEvent<GameObject>();
 
+    public static UnityEvent OnLevelComplete = new UnityEvent();
+
     public static void SendEnemyKilled()
     {
         OnEnemyKilled.Invoke();
@@ -29,5 +31,10 @@ public class GlobalEventManager : MonoBehaviour
     public static GameObject GetPlayer()
     {
         return GlobalEventManager.player;
+    }
+
+    public static void SendLevelComplete()
+    {
+        OnLevelComplete.Invoke();
     }
 }

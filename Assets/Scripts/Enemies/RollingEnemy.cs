@@ -94,6 +94,7 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
 
     public void Die()
     {
+        GlobalEventManager.SendLevelComplete();
         Destroy(gameObject);
     }
 }
