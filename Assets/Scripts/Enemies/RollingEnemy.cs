@@ -81,10 +81,12 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
         }
     }
 
-    public void TakeDamage(int inputDamage, GameObject initiator)
+    public void TakeDamage(int inputDamage, GameObject attacker)
     {
         health -= inputDamage;
         if (health < 1) Die();
+        
+        GlobalEventManager.SendEnemyRecievedDamage();
     }
 
     public void Parried(GameObject initiator)
@@ -94,7 +96,8 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
 
     public void Die()
     {
-        GlobalEventManager.SendLevelComplete();
+        // GlobalEventManager.SendLevelComplete();
+        GlobalEventManager.SendEnemyKilled();
         Destroy(gameObject);
     }
 }

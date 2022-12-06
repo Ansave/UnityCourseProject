@@ -6,8 +6,8 @@ public class PlayerCombat : MonoBehaviour, IHitable
 {
     // Характеристики
     [Header("Характеристики")]
-    [SerializeField] private int maxHealth = 500;
-    [SerializeField] private int health;
+    [SerializeField] public int maxHealth = 500;
+    [SerializeField] public int health;
 
     // Ведение боя
     [Header("Ведение боя")]
@@ -78,10 +78,10 @@ public class PlayerCombat : MonoBehaviour, IHitable
         }
         else {
             health -= inputDamage;
+            if (health < 1) Die();
+            
             DeathSound.Play();
-            if (health < 1) {
-                Die();
-            }
+            GlobalEventManager.SendPlayerRecievedDamage();
         }
     }
     
