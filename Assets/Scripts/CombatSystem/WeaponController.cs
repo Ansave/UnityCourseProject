@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject sword;
     public bool canAttack = true;
+    public GameObject sword;
     public int damage = 25;
     public float cooldown = 1f;
     public float attackRadius = 20f;
