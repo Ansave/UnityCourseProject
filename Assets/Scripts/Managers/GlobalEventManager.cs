@@ -8,7 +8,8 @@ public class GlobalEventManager : MonoBehaviour
 {
     private static GameObject player;
     
-    public static UnityEvent OnEnemyKilled = new UnityEvent();
+    public static readonly UnityEvent OnEnemyKilled = new UnityEvent();
+    public static readonly UnityEvent OnPlayerKilled = new UnityEvent();
     public static readonly UnityEvent <GameObject> OnPlayerSpawned = new UnityEvent<GameObject>();
 
     public static UnityEvent OnLevelComplete = new UnityEvent();
@@ -16,6 +17,10 @@ public class GlobalEventManager : MonoBehaviour
     public static void SendEnemyKilled()
     {
         OnEnemyKilled.Invoke();
+    }
+    public static void SendPlayerKilled()
+    {
+        OnPlayerKilled.Invoke();
     }
 
     public static void SendPlayerSpawned(GameObject player)

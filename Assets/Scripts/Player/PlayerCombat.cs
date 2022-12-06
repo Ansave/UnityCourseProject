@@ -87,6 +87,7 @@ public class PlayerCombat : MonoBehaviour, IHitable
     
     public void Die()
     {
+        GlobalEventManager.SendPlayerKilled();
         gameObject.SetActive(false);
     }
 
