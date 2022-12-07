@@ -48,7 +48,7 @@ public class GlobalEventManager : MonoBehaviour
     
     public static void SendEnemyRecievedDamage()
     {
-        OnPlayerRecievedDamage.Invoke();
+        OnEnemyRecievedDamage.Invoke();
     }
 
     public static void SendLevelComplete()
