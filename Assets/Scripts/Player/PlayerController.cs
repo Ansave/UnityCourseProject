@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour, IMovable
 {
     // Физика и перемещение
     [Header("Перемещение")]
-    [SerializeField] private float speedScale = 1f;
-    [SerializeField] private float dashLength = 12f;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float dashMaxLength = 12f;
+    [SerializeField] private float dashPad = 2f;
     private Rigidbody myRigidbody;
+    private BoxCollider boxCollider;
     private Vector3 movementDirection;
 
     // Вид и прицеливание
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour, IMovable
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
         SetCameraMatrix();
         
         void SetCameraMatrix()
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour, IMovable
     public void Move()
     {
         SetMovementDirection();
-        myRigidbody.AddForce(movementDirection * speedScale, ForceMode.Force);
+        myRigidbody.AddForce(movementDirection * speed, ForceMode.Force);
     }
 
     private void Look()
@@ -64,7 +67,15 @@ public class PlayerController : MonoBehaviour, IMovable
 
     private void Dash()
     {
-        transform.Translate(myRigidbody.velocity.normalized * dashLength,Space.World);
+        if (Physics.BoxCast(transform.position, boxCollider.size / 2, movementDirection, 
+            out RaycastHit hitInfo, transform.rotation, dashMaxLength)) {
+            var dash = movementDirection * (hitInfo.distance - dashPad);
+            transform.Translate(dash,Space.World);
+        }
+        else {
+            transform.Translate(movementDirection * dashMaxLength, Space.World);
+        }
+
     }
 
 }

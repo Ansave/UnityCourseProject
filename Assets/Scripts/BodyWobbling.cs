@@ -7,12 +7,6 @@ public class BodyWobbling : MonoBehaviour
     [SerializeField] public GameObject spring;
     [SerializeField] public float wobblingScale;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        // spring.transform.position = transform.position;
-    }
-
     // Update is called once per frame
     void LateUpdate()
     {
