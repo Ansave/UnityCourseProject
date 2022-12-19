@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
+
 
 public class Player : MonoBehaviour, IHitable
 {
@@ -85,6 +87,7 @@ public class Player : MonoBehaviour, IHitable
             if (health < 1) Die();
             
             DeathSound.Play();
+            CameraShaker.Instance.ShakeOnce(4.0f, 4.0f, 0.1f, 0.1f);
             GlobalEventManager.SendPlayerRecievedDamage();
         }
     }

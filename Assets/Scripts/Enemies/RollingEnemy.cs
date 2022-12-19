@@ -76,6 +76,8 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
 
         if (other.gameObject.TryGetComponent(out Player player)) {
             player.TakeDamage(damage, gameObject);
+            
+            myRigidbody.AddExplosionForce(1000, other.transform.position, 5);
         }
     }
 

@@ -100,22 +100,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1.8572049
-      value: -22.906883
-      inSlope: 224.34
-      outSlope: 224.34
-      tangentMode: 34
+      time: 0.7383337
+      value: -321.75107
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 103
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.9987491
-      value: 8.847147
-      inSlope: 224.34
-      outSlope: 0.12475305
-      tangentMode: 69
-      weightedMode: 0
+      time: 1.4704676
+      value: 57.074436
+      inSlope: 517.4266
+      outSlope: -21.069702
+      tangentMode: 5
+      weightedMode: 2
       inWeight: 0.33333334
+      outWeight: 0.29378492
+    - serializedVersion: 3
+      time: 7.3718653
+      value: 11.717043
+      inSlope: 9.406605
+      outSlope: 0.12475305
+      tangentMode: 65
+      weightedMode: 1
+      inWeight: 0.33436581
       outWeight: 0.18433216
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -138,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot: {fileID: 4711538514835599744}
-  dropProbability: 1
 --- !u!82 &6273570806687815083
 AudioSource:
   m_ObjectHideFlags: 0
