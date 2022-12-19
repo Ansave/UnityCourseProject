@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour, IHitable
+public class Player : MonoBehaviour, IHitable
 {
+    public static Player instance { get; private set; }
+    
     // Характеристики
     [Header("Характеристики")]
     [SerializeField] public int maxHealth = 500;
@@ -22,6 +24,8 @@ public class PlayerCombat : MonoBehaviour, IHitable
 
     private void Awake()
     {
+        if (!Player.instance) instance = this;
+        
         GlobalEventManager.SetPlayer(gameObject);
         GlobalEventManager.SendPlayerSpawned(gameObject);
     }

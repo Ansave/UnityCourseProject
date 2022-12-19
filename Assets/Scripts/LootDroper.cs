@@ -6,7 +6,6 @@ using UnityEngine;
 public class LootDroper : MonoBehaviour
 {
     [SerializeField] private GameObject loot;
-    [SerializeField] private float dropProbability = 0.5f;
 
     private void OnDestroy()
     {

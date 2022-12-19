@@ -14,7 +14,7 @@ public class Aid : MonoBehaviour, IPickable
 
     public void Picked(Collider other)
     {
-        if (other.TryGetComponent(out PlayerCombat player)) {
+        if (other.TryGetComponent(out Player player)) {
             player.TakeHealing(healthPoints);
         }
         Destroy(gameObject);

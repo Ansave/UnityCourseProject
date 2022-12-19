@@ -74,7 +74,7 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
     {
         hitSound.Play();
 
-        if (other.gameObject.TryGetComponent(out PlayerCombat player)) {
+        if (other.gameObject.TryGetComponent(out Player player)) {
             player.TakeDamage(damage, gameObject);
         }
     }

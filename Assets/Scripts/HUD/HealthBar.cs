@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public PlayerCombat playerCombat;
+    public Player player;
     private Slider slider;
     
     void Start()
     {
+        player = Player.instance;
+        
         slider = GetComponent<Slider>();
         slider.minValue = 0f;
-        slider.maxValue = playerCombat.maxHealth;
-        slider.value = playerCombat.health;
+        slider.maxValue = player.maxHealth;
+        slider.value = player.health;
         
         GlobalEventManager.OnPlayerHealed.AddListener(UpdateHealthBar);
         GlobalEventManager.OnPlayerRecievedDamage.AddListener(UpdateHealthBar);
@@ -22,6 +24,6 @@ public class HealthBar : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        slider.value = playerCombat.health;
+        slider.value = player.health;
     }
 }
