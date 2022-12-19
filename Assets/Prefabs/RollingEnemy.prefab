@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7935736625378797268}
   - component: {fileID: 8223958511370897212}
   - component: {fileID: 8387974708793372928}
-  - component: {fileID: 7307987373505185516}
+  - component: {fileID: 7804327601897753099}
   - component: {fileID: 6273570806687815083}
+  - component: {fileID: 4824892363627565947}
   m_Layer: 3
   m_Name: RollingEnemy
   m_TagString: Untagged
@@ -63,57 +64,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8684241851e35d14a8761c8b98447ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   forseCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1.4656448
-      value: -96.14565
-      inSlope: 100.41356
-      outSlope: 100.41356
+      time: 1.8572049
+      value: -22.906883
+      inSlope: 224.34
+      outSlope: 224.34
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2.3800564
-      value: -4.3263354
-      inSlope: 6.0586147
-      outSlope: 6.0586147
-      tangentMode: 0
+      time: 1.9987491
+      value: 8.847147
+      inSlope: 224.34
+      outSlope: 0.12475305
+      tangentMode: 69
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.18433216
-    - serializedVersion: 3
-      time: 11.5
-      value: 20
-      inSlope: 2.667378
-      outSlope: 2.667378
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   forseScale: 3
+  target: {fileID: 0}
   rollAngleScale: 0.015
   rollAngleMax: 45
   hitSound: {fileID: 6273570806687815083}
---- !u!65 &7307987373505185516
-BoxCollider:
+--- !u!114 &7804327601897753099
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7307854310110592110}
-  m_Material: {fileID: 13400000, guid: 8bf83f8f7ea792643a565e6cb748e87c, type: 2}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2702091, y: 2, z: 1.9999999}
-  m_Center: {x: 0, y: 0, z: -0.000000059604645}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd9abd57403275438d524696ad7a4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: {fileID: 0}
+  dropProbability: 1
 --- !u!82 &6273570806687815083
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,6 +203,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &4824892363627565947
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307854310110592110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.96
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7742047705963777421
 GameObject:
   m_ObjectHideFlags: 0

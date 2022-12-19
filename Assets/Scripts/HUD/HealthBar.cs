@@ -15,6 +15,8 @@ public class HealthBar : MonoBehaviour
         slider.minValue = 0f;
         slider.maxValue = playerCombat.maxHealth;
         slider.value = playerCombat.health;
+        
+        GlobalEventManager.OnPlayerHealed.AddListener(UpdateHealthBar);
         GlobalEventManager.OnPlayerRecievedDamage.AddListener(UpdateHealthBar);
     }
 
@@ -22,5 +24,4 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = playerCombat.health;
     }
-        // slider.value = playerCombat.health / playerCombat.maxHealth;
 }

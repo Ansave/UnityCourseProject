@@ -69,9 +69,7 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
             transform.localEulerAngles.y,
             rollAngle);
     }
-    // Переписать Ролл через векторное произведение и кватернион
-
-
+    
     private void OnCollisionEnter(Collision other)
     {
         hitSound.Play();

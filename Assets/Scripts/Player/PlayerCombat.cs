@@ -84,16 +84,17 @@ public class PlayerCombat : MonoBehaviour, IHitable
             GlobalEventManager.SendPlayerRecievedDamage();
         }
     }
+
+    public void TakeHealing(int inputHealing)
+    {
+        health += inputHealing;
+        GlobalEventManager.SendPlayerHealed();
+    }
     
     public void Die()
     {
         GlobalEventManager.SendPlayerKilled();
         gameObject.SetActive(false);
-    }
-
-    private void OnDestroy()
-    {
-        // if(DeathSound) DeathSound.Play();
     }
 }
 
