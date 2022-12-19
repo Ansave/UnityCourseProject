@@ -6608,10 +6608,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084590325}
-  - component: {fileID: 2084590323}
   - component: {fileID: 2084590326}
   - component: {fileID: 2084590324}
   - component: {fileID: 2084590322}
+  - component: {fileID: 2084590321}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6619,6 +6619,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2084590321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084590320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.5271003, z: 1}
+  m_Center: {x: 0, y: -0.1376107, z: 0}
 --- !u!114 &2084590322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6638,20 +6651,6 @@ MonoBehaviour:
   isParryWindow: 0
   isParryReady: 1
   DeathSound: {fileID: 275476309}
---- !u!136 &2084590323
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084590320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.98
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2084590324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6664,8 +6663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829bf198cbfd5944383443a3d611fdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedScale: 2500
-  dashLength: 12
+  speed: 2500
+  dashMaxLength: 12
+  dashPad: 2
   sight: {fileID: 2099810647}
 --- !u!4 &2084590325
 Transform:
@@ -7285,7 +7285,6 @@ GameObject:
   - component: {fileID: 1327482918164728231}
   - component: {fileID: 1299742146243819035}
   - component: {fileID: 1308471241114478557}
-  - component: {fileID: 1340701724296122981}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Untagged
@@ -7293,16 +7292,3 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1340701724296122981
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333033834245487125}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.061739624, y: 0.017685937, z: 0.03299649}
-  m_Center: {x: 0, y: 0, z: 0}
