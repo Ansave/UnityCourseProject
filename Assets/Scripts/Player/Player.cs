@@ -28,8 +28,6 @@ public class Player : MonoBehaviour, IHitable
     private void Awake()
     {
         if (!Player.instance) instance = this;
-        GlobalEventManager.SetPlayer(gameObject);
-        GlobalEventManager.SendPlayerSpawned(gameObject);
         health = maxHealth;
     }
 
