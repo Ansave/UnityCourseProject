@@ -15,7 +15,7 @@ public class LevelCompleteMenu : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCount);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings));
     }
 
     private void LoadMainMenu()

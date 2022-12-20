@@ -13,7 +13,7 @@ public class Wave : MonoBehaviour
 
     private void CheckWave()
     {
-        if (transform.childCount <= 1) Eliminate();
+        if (transform.childCount < 1) Eliminate();
     }
 
     void Eliminate()

@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
 {
-    private int wavesCount;
+    public static EnemyWaveManager instance { get; private set; }
+    public int wavesCount { get; private set; }
+
+    private void Awake()
+    {
+        if (!EnemyWaveManager.instance) instance = this;
+    }
 
     private void Start()
     {

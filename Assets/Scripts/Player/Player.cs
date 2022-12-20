@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,7 +89,8 @@ public class Player : MonoBehaviour, IHitable
 
     public void TakeHealing(int inputHealing)
     {
-        health += inputHealing;
+        // health += inputHealing;
+        health = Mathf.Clamp(health + inputHealing, 0, maxHealth);
         GlobalEventManager.SendPlayerHealed();
     }
     
