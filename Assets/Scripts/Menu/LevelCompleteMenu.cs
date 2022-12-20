@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelCompleteMenu : MonoBehaviour
 {
-    public GameObject levelCompleteMenu;
+    [SerializeField] private GameObject levelCompleteMenu;
 
     private void Start()
     {
         GlobalEventManager.OnLevelComplete.AddListener(() => levelCompleteMenu.SetActive(true));
     }
 
-    public void LoadNextLevel()
+    private void LoadNextLevel()
     {
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCount);
     }
 
-    public void LoadMainMenu()
+    private void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
     }

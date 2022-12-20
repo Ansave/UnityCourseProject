@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public LevelLoader levelLoader;
-    public void StartNewGame()
+    [SerializeField] private LevelLoader levelLoader;
+    private void StartNewGame()
     {
         levelLoader.gameObject.SetActive(true);
         levelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 
-    public void ExitGame()
+    private void ExitGame()
     {
         Debug.Log("Game is closed");
         Application.Quit();

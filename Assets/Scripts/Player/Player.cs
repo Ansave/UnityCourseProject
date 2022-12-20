@@ -9,9 +9,10 @@ public class Player : MonoBehaviour, IHitable
     public static Player instance { get; private set; }
     
     // Характеристики
-    [Header("Характеристики")]
-    [SerializeField] public int maxHealth = 500;
-    [SerializeField] public int health;
+    // [Header("Характеристики")]
+    [field: SerializeField] public int maxHealth { get; private set; } = 500;
+    [field: SerializeField] public int health { get; private set; }
+
 
     // Ведение боя
     [Header("Ведение боя")]
@@ -22,21 +23,16 @@ public class Player : MonoBehaviour, IHitable
 
     // Эффекты
     [Header("Эффекты")]
-    [SerializeField] private AudioSource DeathSound = new AudioSource();
+    [SerializeField] private AudioSource DeathSound;
 
     private void Awake()
     {
         if (!Player.instance) instance = this;
-        
         GlobalEventManager.SetPlayer(gameObject);
         GlobalEventManager.SendPlayerSpawned(gameObject);
-    }
-
-    void Start()
-    {
         health = maxHealth;
     }
-    
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1) && isParryReady) {
@@ -86,7 +82,7 @@ public class Player : MonoBehaviour, IHitable
             health -= inputDamage;
             if (health < 1) Die();
             
-            DeathSound.Play();
+            if (DeathSound) DeathSound.Play();
             CameraShaker.Instance.ShakeOnce(4.0f, 4.0f, 0.1f, 0.1f);
             GlobalEventManager.SendPlayerRecievedDamage();
         }

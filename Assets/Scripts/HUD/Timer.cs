@@ -8,11 +8,18 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Text text;
+    private float startTime;
+
+    private void Start()
+    {
+        startTime = Time.time;
+    }
 
     private void Update()
     {
-        int minutes = (int) Time.time / 60;
-        int seconds = (int) Time.time % 60;
+        var currentTime = Time.time - startTime;
+        int minutes = (int) currentTime / 60;
+        int seconds = (int) currentTime % 60;
         text.text = $"{minutes:D2}:{seconds:D2}";
     }
 }

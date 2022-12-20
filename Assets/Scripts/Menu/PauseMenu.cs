@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     void Update()
     {
@@ -19,19 +19,19 @@ public class PauseMenu : MonoBehaviour
         }
     }
     
-    public void Pause()
+    private void Pause()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
-    public void Resume()
+    private void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void LoadMainMenu()
+    private void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;

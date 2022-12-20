@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public GameObject gameOverMenu;
+    [SerializeField] private GameObject gameOverMenu;
     
     private void Start()
     {
         GlobalEventManager.OnPlayerKilled.AddListener(() => gameOverMenu.SetActive(true));
     }
     
-    public void ReloadLevel()
+    private void ReloadLevel()
     {
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex));
     }
     
-    public void LoadMainMenu()
+    private void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
     }

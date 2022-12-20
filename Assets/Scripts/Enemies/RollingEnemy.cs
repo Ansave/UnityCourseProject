@@ -8,17 +8,18 @@ using UnityEngine.Serialization;
 public class RollingEnemy : MonoBehaviour, IHitable, IParryble
 {
     // Характеристики
-    private const int maxHealth = 100;
-    private int health = maxHealth;
-    private int damage = 25;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int health;
+    [SerializeField] private int damage = 25;
     
     // Физика
     private Rigidbody myRigidbody;
     [SerializeField] private AnimationCurve forseCurve;
     [SerializeField] private float forseScale = 3f;
+    [SerializeField] private float attackBumpForse = 1000f;
     
     // Цель
-    public GameObject target = null;
+    private GameObject target = null;
     
     // Анимация
     [SerializeField] private float rollAngleScale = 0.015f;
@@ -29,10 +30,9 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
     
     void Start()
     {
+        health = maxHealth;
+        target = Player.instance.gameObject;
         myRigidbody = GetComponent<Rigidbody>();
-
-        target = GlobalEventManager.GetPlayer();
-        GlobalEventManager.OnPlayerSpawned.AddListener(player => target = player);
     }
     
     void Update()
@@ -76,8 +76,7 @@ public class RollingEnemy : MonoBehaviour, IHitable, IParryble
 
         if (other.gameObject.TryGetComponent(out Player player)) {
             player.TakeDamage(damage, gameObject);
-            
-            myRigidbody.AddExplosionForce(1000, other.transform.position, 5);
+            myRigidbody.AddExplosionForce(attackBumpForse, other.transform.position, 5);
         }
     }
 
