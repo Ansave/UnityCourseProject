@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int wavesCount;
+
+    private void Start()
     {
-        
+        wavesCount = transform.childCount;
+        transform.GetChild(0).gameObject.SetActive(true);
+        GlobalEventManager.OnWaveEliminated.AddListener(UpdateWaves);
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateWaves()
     {
-        
+        wavesCount--;
+        if (wavesCount < 1) GlobalEventManager.SendLevelComplete();
+        else transform.GetChild(1).gameObject.SetActive(true);
     }
 }

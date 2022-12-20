@@ -12,6 +12,7 @@ public class GlobalEventManager : MonoBehaviour
     public static readonly UnityEvent OnPlayerHealed = new UnityEvent();
     public static readonly UnityEvent OnEnemyRecievedDamage = new UnityEvent();
 
+    public static readonly UnityEvent OnWaveEliminated = new UnityEvent();
     public static readonly UnityEvent OnLevelComplete = new UnityEvent();
     
 
@@ -38,6 +39,11 @@ public class GlobalEventManager : MonoBehaviour
     public static void SendEnemyRecievedDamage()
     {
         OnEnemyRecievedDamage.Invoke();
+    }
+
+    public static void SendWaveElininated()
+    {
+        OnWaveEliminated.Invoke();
     }
 
     public static void SendLevelComplete()

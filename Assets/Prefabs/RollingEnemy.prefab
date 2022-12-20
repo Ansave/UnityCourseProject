@@ -167,6 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8684241851e35d14a8761c8b98447ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0
+  damage: 25
   forseCurve:
     serializedVersion: 2
     m_Curve:
@@ -192,7 +195,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   forseScale: 1.5
-  target: {fileID: 0}
+  attackBumpForse: 1000
   rollAngleScale: 0.015
   rollAngleMax: 45
   hitSound: {fileID: 2031566101844401618}
@@ -426,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91d682039e542148bc9ac573a6e5c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 50
+  healthPoints: 15
 --- !u!1 &2031566103352623082
 GameObject:
   m_ObjectHideFlags: 0
