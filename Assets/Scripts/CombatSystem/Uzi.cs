@@ -5,13 +5,16 @@ using UnityEngine.PlayerLoop;
 
 public class Uzi : Weapon
 {
-    void Update()
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Vector3 bulletOffset;
+    [SerializeField] private float bulletHeight = 4f;
+    
+    protected override void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canAttack) {
-            Attack();
-        }
+        base.Attack();
+        var spawnPosition = transform.position + transform.TransformDirection(bulletOffset);
+        var spawnRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+        spawnPosition.y = bulletHeight;
+        Instantiate(bullet, spawnPosition, spawnRotation).SetActive(true);
     }
-
-    
-    
 }

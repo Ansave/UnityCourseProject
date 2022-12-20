@@ -16,7 +16,7 @@ public class Aid : MonoBehaviour, IPickable
     {
         if (other.TryGetComponent(out Player player)) {
             player.TakeHealing(healthPoints);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

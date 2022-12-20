@@ -13,14 +13,14 @@ public abstract class Weapon : MonoBehaviour
     
     protected void Update()
     {
-        if (Input.GetKeyDown(button) && canAttack) {
+        if (Input.GetKey(button) && canAttack) {
             Attack();
         }
     }
 
     protected virtual void Attack()
     {
-        Debug.Log($"{gameObject.name} is attacking");
+        StartCoroutine(AttackCooldown());
     }
     
     protected virtual IEnumerator AttackCooldown()

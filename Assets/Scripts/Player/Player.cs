@@ -33,7 +33,7 @@ public class Player : MonoBehaviour, IHitable
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && isParryReady) {
+        if (Input.GetKeyDown(KeyCode.Mouse2) && isParryReady) {
             StartCoroutine(ActivateParryWindow());
             StartCoroutine(ActivateParryCooldown());
         }
